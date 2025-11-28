@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 'use strict';
+
 // replace-bootstrap-imports.js
 const fs = require('fs');
 const path = require('path');
@@ -68,6 +69,7 @@ function processSCSSFiles(directory) {
     console.log(`   Files updated: ${updatedCount}`);
     console.log(`   No changes: ${processedCount - updatedCount}`);
 }
+
 
 // Run untuk directories yang mungkin ada SCSS files
 const directories = [
