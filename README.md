@@ -1,8 +1,17 @@
-# @vigihdev/bootstrap4-bundle-compact
+# @vigihdev/bootstrap4-bundle-compact 🚀
 
-A comprehensive Bootstrap 4 component bundle with enhanced plugins and utilities for modern web development.
+**All-in-One Bootstrap 4 Solution** - A comprehensive bundle featuring essential components, custom themes, and streamlined build tools.
 
-## 📦 Installation
+## ✨ Features
+
+- ✅ **Bootstrap 4.6** - Full framework included
+- ✅ **jQuery + Popper.js** - Essential dependencies
+- ✅ **Custom Themes** - Pre-built theme system
+- ✅ **Component Library** - Ready-to-use UI components
+- ✅ **Build Tools** - Grunt-based build pipeline
+- ✅ **Compact Size** - Optimized for production
+
+## 🛠️ Installation
 
 ```bash
 npm install @vigihdev/bootstrap4-bundle-compact
@@ -10,164 +19,81 @@ npm install @vigihdev/bootstrap4-bundle-compact
 
 ## 🚀 Quick Start
 
-```javascript
-// Import the bundle
-import "@vigihdev/bootstrap4-bundle-compact/dist/css/bootstrap-bundle.css";
-import "@vigihdev/bootstrap4-bundle-compact/dist/js/bootstrap-bundle.js";
+### HTML Usage:
 
-// Or include via CDN (coming soon)
+```html
+<!-- Include everything in two lines -->
+<link
+  href="node_modules/@vigihdev/bootstrap4-bundle-compact/builds/css/bootstrap-bundle.css"
+  rel="stylesheet"
+/>
+<script src="node_modules/@vigihdev/bootstrap4-bundle-compact/builds/js/bootstrap-bundle.js"></script>
 ```
 
-## 📋 Included Components & Plugins
-
-### Core Framework
-
-- **Bootstrap 4.6.0** - Complete CSS framework
-- **jQuery 3.7.1** - JavaScript library
-- **Popper.js** & **@popperjs/core** - Tooltip and popover positioning
-
-### UI Components
-
-- **Owl Carousel 2.3.4** - Responsive carousel slider
-- **Select2 4.1.0** - Enhanced select boxes
-- **Lightbox2 2.11.5** - Image lightbox gallery
-- **BS5 Lightbox 1.8.3** - Bootstrap 5 lightbox component
-
-### Utilities
-
-- **Tempus Dominus 6.9.11** - DateTime picker
-- **Moment.js 2.30.1** - Date manipulation library
-- **Handlebars 4.7.7** - Templating engine
-- **Clipboard 2.0.11** - Copy to clipboard functionality
-- **EasyTimer.js 4.6.0** - Timer and countdown utility
-- **Infinite Scroll 4.0.1** - Infinite scrolling functionality
-- **Typeahead.js 0.11.1** - Autocomplete functionality
-
-## 🛠️ Build Commands
-
-### Development
+### Build System:
 
 ```bash
-# Start development server with nodemon
-npm run dev
+# Build everything
+grunt bundle-bootstrap4:fresh
 
-# Run all bootstrap4 grunt tasks
-npm run grunt:bs4
+# Development watch mode
+grunt bundle-bootstrap4:watch
 
-# Clean build directories
-npm run grunt:bs4:clean
-
-# Fresh build (clean + build)
-npm run grunt:bs4:fresh
-
-# Build distribution files
-npm run grunt:bs4:dist
-
-# Build bundle only
-npm run grunt:bs4:build
-```
-
-### Production Build
-
-```bash
-# Complete production build
-npm run grunt:bs4:dist
-
-# Or step by step
-npm run grunt:bs4:clean
-npm run grunt:bs4:build
+# Build specific components
+grunt bootstrap4:dist
+grunt themes_styles:build
 ```
 
 ## 📁 Project Structure
 
 ```
 bootstrap4-bundle-compact/
-├── src/
-│   ├── scripts/
-│   │   └── grunt.sh          # Grunt task runner
-│   ├── grunt/
-│   │   └── bootstrap4-grunt.js # Grunt configuration
-│   └── config/
-│       └── dotEnv.js         # Environment configuration
-├── builds/                   # Temporary build files
-├── dist/                    # Final distribution files
-│   ├── css/
-│   │   └── bootstrap-bundle.css
-│   └── js/
-│       └── bootstrap-bundle.js
-└── index.js                 # Main entry point
+├── builds/                 # Production builds
+├── assets/                # Build configuration
+│   ├── bootstrap4/        # Core Bootstrap
+│   ├── themes-bootstrap/  # Bootstrap themes
+│   ├── themes-styles/     # Foundation styles
+│   └── themes-components/ # UI components
+└── libs/                  # Custom libraries
 ```
 
-## 🔧 Grunt Tasks
+## 🔧 Available Tasks
 
-The project uses Grunt for automated builds with the following tasks:
+```bash
+# Main builds
+grunt bundle-bootstrap4:fresh    # Clean + full rebuild
+grunt bundle-bootstrap4:build    # Build final bundle
 
-- **concat_css** - Combine CSS files
-- **concat** - Combine JavaScript files
-- **sass** - Compile Sass to CSS
-- **copy** - Copy files to build directory
-- **stripCssComments** - Remove CSS comments for production
-- **cssmin** - Minify CSS files
-- **uglify** - Minify JavaScript files
+# Individual components
+grunt bootstrap4:dist           # Build Bootstrap core
+grunt themes_styles:build       # Build theme styles
+grunt themes_components:build   # Build UI components
 
-## 🎯 Usage Examples
-
-### DateTime Picker
-
-```javascript
-// Initialize Tempus Dominus
-new tempusDominus.TempusDominus(document.getElementById("datetimepicker"), {
-  // configuration options
-});
+# Development
+grunt bootstrap4:watch          # Watch Bootstrap files
+grunt themes_styles:watch       # Watch theme files
 ```
 
-### Carousel
+## 🎨 Themes Included
 
-```javascript
-// Initialize Owl Carousel
-$(".owl-carousel").owlCarousel({
-  items: 1,
-  loop: true,
-  nav: true,
-});
+- **Bootstrap Themes** - Enhanced Bootstrap components
+- **Style Foundation** - Base styling system
+- **UI Components** - Ready-to-use components
+
+## 📦 What's Inside
+
+- Bootstrap 4.6.0 + jQuery 3.7.1 + Popper.js
+- Custom theme system (Sass/SCSS)
+- Component library (JavaScript)
+- Grunt build automation
+- Production-optimized bundles
+
+## 🔄 Build Pipeline
+
 ```
-
-### Select2
-
-```javascript
-// Enhanced select boxes
-$(".select2").select2();
+Clean → Compile (Sass) → Bundle (Concat) → Optimize → Final Bundle
 ```
-
-## 🌟 Features
-
-- ✅ **Optimized Bundles** - Combined and minified assets
-- ✅ **Tree Shaking Ready** - ES6 module support
-- ✅ **Production Ready** - Optimized for deployment
-- ✅ **Developer Friendly** - Comprehensive build system
-- ✅ **Plugin Integration** - Seamless plugin interoperability
 
 ## 📄 License
 
-MIT © Vigihdev
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📞 Support
-
-For support and questions, please open an issue on the GitHub repository.
-
----
-
-**Version:** 0.1.0-dev  
-**Last Updated:** November 2024
-
----
-
-<div align="center">
-  
-Made with ❤️ by [Vigihdev](https://github.com/vigihdev)
-
-</div>
+MIT © [Vigihdev](https://github.com/vigihdev)
