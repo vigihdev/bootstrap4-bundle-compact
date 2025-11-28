@@ -72,6 +72,7 @@ function processSCSSFiles(directory) {
 // Run untuk directories yang mungkin ada SCSS files
 const directories = [
     './libs/parent-themes-styles',
+    './node_modules/@vigihdev/bootstrap4-bundle-compact/libs/parent-themes-styles',
 ];
 
 directories.forEach(dir => {
