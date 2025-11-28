@@ -1,6 +1,7 @@
 'use strict';
 // Gruntfile.js
-require('dotenv').populate(process.env, { BOOTSTRAP4_BUNDLE_BASEPATH: __dirname });
+const DotEnv = require('./dotenv').DotEnv;
+DotEnv.boot();
 
 const { Bootstrap4Grunt, ThemesStylesGrunt, ThemesBootstrapGrunt, ThemesComponentsGrunt, BundleBootstrap4Grunt } = require('./index')
 

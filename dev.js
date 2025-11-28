@@ -1,3 +1,5 @@
-require('dotenv').populate(process.env, { BOOTSTRAP4_BUNDLE_BASEPATH: __dirname });
+const path = require('node:path');
+const DotEnv = require('./dotenv').DotEnv;
+DotEnv.boot();
 const { Paths } = require('./src/config/paths');
-console.log(Paths)
+// console.log(Paths)
