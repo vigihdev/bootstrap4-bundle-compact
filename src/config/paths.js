@@ -1,16 +1,29 @@
 const path = require("path");
 
-if (typeof process.env?.BOOTSTRAP4_BUNDLE_BASEPATH !== 'string') {
+const envs = [
+    process.env?.BOOTSTRAP4_BUNDLE_BASEPATH,
+    process.env?.NODE_MODULES_BOOTSTRAP4_BUNDLE,
+    process.env?.LIBS_BOOTSTRAP4_BUNDLE,
+];
+
+envs.forEach(env => {
+    if (typeof env !== 'string') {
+        throw new Error(`Env ${env} is not defined`);
+    }
+});
+
+if (
+    typeof process.env?.BOOTSTRAP4_BUNDLE_BASEPATH !== 'string' ||
+    typeof process.env?.NODE_MODULES_BOOTSTRAP4_BUNDLE !== 'string' ||
+    typeof process.env?.LIBS_BOOTSTRAP4_BUNDLE !== 'string'
+) {
     throw new Error('Env BOOTSTRAP4_BUNDLE_BASEPATH is not defined');
 }
 
-if (typeof process.env?.BOOTSTRAP4_BUNDLE_LIBS_BASEPATH !== 'string') {
-    throw new Error('Env BOOTSTRAP4_BUNDLE_LIBS_BASEPATH is not defined');
-}
+const BASEPATH = path.resolve(process.env.PWD, process.env.BOOTSTRAP4_BUNDLE_BASEPATH);
+const NODE = path.resolve(process.env.PWD, process.env.NODE_MODULES_BOOTSTRAP4_BUNDLE);
+const LIBS = path.resolve(process.env.PWD, process.env.LIBS_BOOTSTRAP4_BUNDLE)
 
-const BASEPATH = process.env.BOOTSTRAP4_BUNDLE_BASEPATH;
-const NODE = path.join(BASEPATH, 'node_modules');
-const LIBS = process.env.BOOTSTRAP4_BUNDLE_LIBS_BASEPATH
 const ASSETS = path.join(BASEPATH, 'assets');
 const BOOTSTRAP4 = path.join(ASSETS, 'bootstrap4');
 

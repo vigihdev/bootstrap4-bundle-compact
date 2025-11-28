@@ -1,5 +1,5 @@
 const path = require('node:path');
-const DotEnv = require('./dotenv').DotEnv;
-DotEnv.boot();
+
+require('dotenv').config({ path: '.env.grunt' })
 const { Paths } = require('./src/config/paths');
 // console.log(Paths)
