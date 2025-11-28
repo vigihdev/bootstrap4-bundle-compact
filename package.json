@@ -22,6 +22,7 @@
         "index.js",
         "README.md",
         "LICENSE",
+        "dotenv.js",
         "index.js",
         "Gruntfile.js",
         "license.txt"
