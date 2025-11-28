@@ -27,6 +27,10 @@
         "Gruntfile.js",
         "license.txt"
     ],
+    "bin": {
+        "bs4-remove-deprecate": "./src/scripts/remove-deprecate.js",
+        "bs4-replace-imports": "./src/scripts/replace-bootstrap-imports.js"
+    },
     "dependencies": {
         "@eonasdan/tempus-dominus": "^6.9.11",
         "@popperjs/core": "^2.11.8",
