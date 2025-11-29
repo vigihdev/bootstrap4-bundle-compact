@@ -2,10 +2,11 @@
 
 const path = require('node:path');
 const { Paths } = require('../config/paths');
+const { AssetsPaths } = require('../config/assets-paths');
 
-const BASEPATH = Paths.ASSETS.BASEPATH;
-const JS_BUILDS = Paths.ASSETS.BUILDS.JS;
-const CSS_BUILDS = Paths.ASSETS.BUILDS.CSS;
+const BASEPATH = AssetsPaths.BASEPATH;
+const JS_BUILDS = AssetsPaths.BUILDS.JS;
+const CSS_BUILDS = AssetsPaths.BUILDS.CSS;
 
 const PATHS = {
     DIST: {
@@ -17,15 +18,15 @@ const PATHS = {
         JS: path.join(BASEPATH, 'builds', 'js')
     },
     LIBRARIES: {
-        BOOTSTRAP4: path.join(Paths.ASSETS.BOOTSTRAP4.BASEPATH, 'builds'),
-        THEMES_STYLES: path.join(Paths.ASSETS.THEMES_STYLES.BASEPATH, 'builds'),
-        THEMES_BOOTSTRAP: path.join(Paths.ASSETS.THEMES_BOOTSTRAP.BASEPATH, 'builds'),
-        THEMES_COMPONENTS: path.join(Paths.ASSETS.THEMES_COMPONENTS.BASEPATH, 'builds'),
+        BOOTSTRAP4: path.join(AssetsPaths.BOOTSTRAP4.BASEPATH, 'builds'),
+        THEMES_STYLES: path.join(AssetsPaths.THEMES_STYLES.BASEPATH, 'builds'),
+        THEMES_BOOTSTRAP: path.join(AssetsPaths.THEMES_BOOTSTRAP.BASEPATH, 'builds'),
+        THEMES_COMPONENTS: path.join(AssetsPaths.THEMES_COMPONENTS.BASEPATH, 'builds'),
     }
 };
 
 module.exports.BundleBootstrap4Sass = {
-    basepath: BASEPATH,
+    basepath: AssetsPaths.BASEPATH,
     builds: {
         concat: {
             dist: {

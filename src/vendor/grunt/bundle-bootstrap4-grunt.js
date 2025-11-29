@@ -1,31 +1,20 @@
-'use strict';
 // bootstrap4-grunt.js
 
-const { BundleBootstrap4Sass } = require('../sass/bundle-bootstrap4-sass')
+const { BundleBootstrap4Sass } = require('../sass/bundle-bootstrap4-sass');
+const { spawnSync } = require('node:child_process');
 
 const COMMAND = 'bundle-bootstrap4';
 
 /** @param {import("grunt")} grunt */
 module.exports.BundleBootstrap4Grunt = function (grunt) {
 
-    grunt.task.registerTask(`${COMMAND}:fresh`, 'Clean + Build fresh', [
-        `bootstrap4:clean`,
-        `bootstrap4:dist`,
-        `bootstrap4:build`,
-        //
-        `themes_bootstrap:clean`,
-        `themes_bootstrap:dist`,
-        `themes_bootstrap:build`,
-        //
-        `themes_styles:clean`,
-        `themes_styles:dist`,
-        `themes_styles:build`,
-        //
-        `themes_components:clean`,
-        `themes_components:dist`,
-        `themes_components:build`,
-        `${COMMAND}:build`
-    ]);
+    grunt.task.registerTask(`${COMMAND}:fresh`, 'Clean + Build fresh', function () {
+        spawnSync('grunt', [`bootstrap4:fresh`], { stdio: 'inherit' })
+        spawnSync('grunt', [`themes_bootstrap:fresh`], { stdio: 'inherit' })
+        spawnSync('grunt', [`themes_styles:fresh`], { stdio: 'inherit' })
+        spawnSync('grunt', [`themes_components:fresh`], { stdio: 'inherit' })
+        spawnSync('grunt', [`${COMMAND}:build`], { stdio: 'inherit' })
+    });
 
     grunt.task.registerTask(`${COMMAND}`, 'Default Bootstrap task', [
         `${COMMAND}:build`

@@ -2,9 +2,10 @@
 const path = require("node:path");
 const fs = require("node:fs");
 const { Paths } = require("../config/paths");
+const { AssetsPaths } = require("../config/assets-paths");
 
-const DIST_BS4 = Paths.ASSETS.BOOTSTRAP4.DIST;
-const BUILDS_BS4 = Paths.ASSETS.BOOTSTRAP4.BUILDS;
+const DIST_BS4 = AssetsPaths.BOOTSTRAP4.DIST;
+const BUILDS_BS4 = AssetsPaths.BOOTSTRAP4.BUILDS;
 
 // Sass Configuration
 const sass = {
@@ -83,8 +84,7 @@ const buildsConcatCss = [
     .filter(f => fs.existsSync(f));
 
 module.exports.Bootstrap4Sass = {
-    basepath: Paths.ASSETS.BOOTSTRAP4.BASEPATH,
-
+    basepath: AssetsPaths.BOOTSTRAP4.BASEPATH,
     sass: sass,
 
     copy: {

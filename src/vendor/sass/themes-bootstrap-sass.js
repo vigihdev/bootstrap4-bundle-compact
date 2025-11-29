@@ -4,10 +4,11 @@
 const path = require('node:path');
 const fs = require('node:fs');
 const { Paths } = require('../config/paths');
+const { AssetsPaths } = require('../config/assets-paths');
 
 const BASEPATH = Paths.LIBRARIES.THEMES_BOOTSTRAP;
-const DIST_STYLES = Paths.ASSETS.THEMES_BOOTSTRAP.DIST;
-const BUILDS_STYLES = Paths.ASSETS.THEMES_BOOTSTRAP.BUILDS;
+const DIST_STYLES = AssetsPaths.THEMES_BOOTSTRAP.DIST;
+const BUILDS_STYLES = AssetsPaths.THEMES_BOOTSTRAP.BUILDS;
 
 const PATHS = {
     DIST: {
@@ -81,7 +82,7 @@ const watch = {
 }
 
 module.exports.ThemesBootstrapSass = {
-    basepath: Paths.ASSETS.THEMES_BOOTSTRAP.BASEPATH,
+    basepath: AssetsPaths.THEMES_BOOTSTRAP.BASEPATH,
     sass: sass,
     concat: {
         options: {

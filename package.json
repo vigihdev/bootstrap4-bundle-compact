@@ -15,21 +15,8 @@
     ],
     "author": "vigihdev",
     "license": "MIT",
-    "files": [
-        "assets/**/*",
-        "libs/**/*",
-        "src/**/*",
-        "index.js",
-        "README.md",
-        "LICENSE",
-        ".env.grunt",
-        "index.js",
-        "Gruntfile.js",
-        "license.txt"
-    ],
-    "bin": {
-        "bs4-remove-deprecate": "./src/scripts/remove-deprecate.js",
-        "bs4-replace-imports": "./src/scripts/replace-bootstrap-imports.js"
+    "engines": {
+        "node": ">=18.0.0"
     },
     "dependencies": {
         "@eonasdan/tempus-dominus": "^6.9.11",
@@ -40,20 +27,6 @@
         "clipboard": "^2.0.11",
         "dotenv": "^17.2.3",
         "easytimer.js": "^4.6.0",
-        "grunt": "^1.5.3",
-        "grunt-banner": "^0.6.0",
-        "grunt-concat-css": "^0.3.2",
-        "grunt-contrib-concat": "^2.1.0",
-        "grunt-contrib-copy": "^1.0.0",
-        "grunt-contrib-cssmin": "^5.0.0",
-        "grunt-contrib-sass": "^2.0.0",
-        "grunt-contrib-uglify": "^5.2.2",
-        "grunt-contrib-watch": "^1.1.0",
-        "grunt-run": "^0.8.1",
-        "grunt-sass": "^4.0.0",
-        "grunt-shell": "^4.0.0",
-        "grunt-strip-css-comments": "^1.3.0",
-        "grunt-text-replace": "^0.4.0",
         "handlebars": "^4.7.7",
         "infinite-scroll": "^4.0.1",
         "jquery": "^3.7.1",
@@ -67,7 +40,24 @@
         "select2": "^4.1.0-rc.0",
         "typeahead.js": "^0.11.1"
     },
+    "devDependencies": {
+        "grunt": "^1.5.3",
+        "grunt-banner": "^0.6.0",
+        "grunt-concat-css": "^0.3.2",
+        "grunt-contrib-concat": "^2.1.0",
+        "grunt-contrib-copy": "^1.0.0",
+        "grunt-contrib-cssmin": "^5.0.0",
+        "grunt-contrib-sass": "^2.0.0",
+        "grunt-contrib-uglify": "^5.2.2",
+        "grunt-contrib-watch": "^1.1.0",
+        "grunt-run": "^0.8.1",
+        "grunt-sass": "^4.0.0",
+        "grunt-shell": "^4.0.0",
+        "grunt-strip-css-comments": "^1.3.0",
+        "grunt-text-replace": "^0.4.0"
+    },
     "scripts": {
+        "install": "src/scripts/install.js",
         "dev": "nodemon dev.js"
     }
 }

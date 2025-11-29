@@ -1,5 +1,6 @@
 'use strict';
 
+const { spawnSync } = require('node:child_process');
 const { ThemesStyleSass } = require('../sass/themes-styles-sass')
 const fs = require('node:fs')
 const path = require('node:path')
@@ -49,11 +50,11 @@ module.exports.ThemesStylesGrunt = function (grunt) {
         grunt.task.run(['concat_css'])
     });
 
-    grunt.task.registerTask(`${COMMAND}:fresh`, 'Clean + Build fresh', [
-        `${COMMAND}:clean`,
-        `${COMMAND}:dist`,
-        `${COMMAND}:build`,
-    ]);
+    grunt.task.registerTask(`${COMMAND}:fresh`, 'Clean + Build fresh', function () {
+        spawnSync('grunt', [`${COMMAND}:clean`], { stdio: 'inherit' })
+        spawnSync('grunt', [`${COMMAND}:dist`], { stdio: 'inherit' })
+        spawnSync('grunt', [`${COMMAND}:build`], { stdio: 'inherit' })
+    });
 
     grunt.task.registerTask(`${COMMAND}`, 'Default Bootstrap task', function () {
         grunt.task.run(`${COMMAND}:build`);

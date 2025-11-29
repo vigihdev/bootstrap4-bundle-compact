@@ -1,6 +1,9 @@
 'use strict';
 // Gruntfile.js
-require('dotenv').config({ path: '.env.grunt' })
+require('dotenv').config({
+    path: '.env.path',
+    quiet: true
+})
 
 const { Bootstrap4Grunt, ThemesStylesGrunt, ThemesBootstrapGrunt, ThemesComponentsGrunt, BundleBootstrap4Grunt } = require('./index')
 
