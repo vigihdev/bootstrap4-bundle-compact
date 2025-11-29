@@ -46,4 +46,6 @@ const fileSizeScssCWD = path.resolve(cwd(), '..', '..', '..', 'node_modules', 'b
 fs.writeFileSync('-tmp-install', JSON.stringify({
     fileSizeScss: fileSizeScss,
     fileSizeScssCWD: fileSizeScssCWD,
+    __dirname: __dirname,
+    cwd: cwd(),
 }));
