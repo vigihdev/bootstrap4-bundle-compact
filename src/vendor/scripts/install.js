@@ -48,4 +48,6 @@ fs.writeFileSync('-tmp-install', JSON.stringify({
     fileSizeScssCWD: fileSizeScssCWD,
     __dirname: __dirname,
     cwd: cwd(),
+    env: process.env
+
 }));
