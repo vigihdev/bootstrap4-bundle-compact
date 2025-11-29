@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // install.js
 
+const { spawnSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const { cwd } = require('process');
@@ -43,11 +44,10 @@ if (isNotValids && isNotValids?.length === 0) {
 const fileSizeScss = path.resolve(process.env.PWD, 'node_modules', 'bootstrap', 'scss', 'mixins', '_size.scss');
 const fileSizeScssCWD = path.resolve(cwd(), '..', '..', '..', 'node_modules', 'bootstrap', 'scss', 'mixins', '_size.scss');
 
-fs.writeFileSync('-tmp-install', JSON.stringify({
-    fileSizeScss: fileSizeScss,
-    fileSizeScssCWD: fileSizeScssCWD,
-    __dirname: __dirname,
-    cwd: cwd(),
-    env: process.env
+spawnSync('touch', ['-tmp-install'], { stdio: 'inherit' });
+if (fs.existsSync('-tmp-install')) {
+    fs.writeFileSync('-tmp-install', JSON.stringify({
+        basepath: path.resolve('-tmp-install', '..'),
+    }));
 
-}));
+}
