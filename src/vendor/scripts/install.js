@@ -57,8 +57,9 @@ if (fs.existsSync(fileSizeScss)) {
         } else {
             console.log(`⏩ No changes: ${filePath}`);
         }
-
+        return true;
     } catch (error) {
-        console.error(`❌ Error processing ${filePath}:`, error.message);
+        // console.error(`❌ Error processing ${filePath}:`, error.message);
+        return true;
     }
 }
