@@ -41,8 +41,6 @@ if (isNotValids && isNotValids?.length === 0) {
 // /Users/thrubus/VigihDev/NpmPackage/test-paket/node_modules/bootstrap/scss/mixins/_size.scss
 
 // Remove Deprace
-const fileSizeScss = path.resolve(process.env.PWD, 'node_modules', 'bootstrap', 'scss', 'mixins', '_size.scss');
-const fileSizeScssCWD = path.resolve(cwd(), '..', '..', '..', 'node_modules', 'bootstrap', 'scss', 'mixins', '_size.scss');
 
 spawnSync('touch', ['-tmp-install'], { stdio: 'inherit' });
 if (fs.existsSync('-tmp-install')) {
