@@ -37,3 +37,27 @@ if (isNotValids && isNotValids?.length === 0) {
         return false;
     }
 }
+
+
+// Remove Deprace
+const fileSizeScss = path.resolve(cwd(), '..', '..', '..', 'node_modules', 'bootstrap', 'scss', 'mixins', '_size.scss');
+if (fs.existsSync(fileSizeScss)) {
+    try {
+        let content = fs.readFileSync(fileSizeScss, 'utf8');
+
+        // Regex untuk hapus @include deprecate yang spesifik untuk size()
+        const regex = /@include deprecate\("`size\(\)`", "v4\.3\.0", "v5"\);\s*/g;
+
+        const newContent = content.replace(regex, '');
+
+        if (content !== newContent) {
+            fs.writeFileSync(filePath, newContent, 'utf8');
+            console.log(`✅ Updated: ${filePath}`);
+        } else {
+            console.log(`⏩ No changes: ${filePath}`);
+        }
+
+    } catch (error) {
+        console.error(`❌ Error processing ${filePath}:`, error.message);
+    }
+}
