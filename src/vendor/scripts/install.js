@@ -1,22 +1,24 @@
 #!/usr/bin/env node
-// install.js
 
-const { spawnSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
-const { cwd } = require('process');
 
-const dstPath = path.resolve(cwd(), 'src', 'assets', 'parent-themes-styles');
+// FIX PENTING: ambil root project
+const ROOT = process.env.npm_config_local_prefix;
+
+const dstPath = path.resolve(ROOT, 'src', 'assets', 'parent-themes-styles');
 const dstFilePath = path.join(dstPath, '_index.scss');
-const srcPath = path.resolve(cwd(), '..', '..', '..', 'node_modules', 'bootstrap', 'scss');
+const srcPath = path.resolve(ROOT, 'node_modules', 'bootstrap', 'scss');
 
 function pathValidate(filepath) {
     return filepath && fs.existsSync(filepath)
 }
 
 const isNotValids = [dstPath, dstFilePath, srcPath].filter(p => !pathValidate(p))
-if (isNotValids && isNotValids?.length === 0) {
+if (isNotValids.length === 0) {
+
     const relativePath = path.relative(dstPath, srcPath);
+
     const content = [
         '// index.scss',
         '',
@@ -29,23 +31,28 @@ if (isNotValids && isNotValids?.length === 0) {
         ''
     ].join('\n');
 
-    try {
-        fs.writeFileSync(dstFilePath, content, 'utf8');
-        console.log(`✅ File berhasil disimpan: ${dstFilePath}`);
-        return true;
-    } catch (error) {
-        console.error(`❌ Gagal menyimpan file: ${error.message}`);
-        return true;
-    }
+    fs.writeFileSync(dstFilePath, content, 'utf8');
+    console.log(`✅ File berhasil disimpan: ${dstFilePath}`);
 }
-// /Users/thrubus/VigihDev/NpmPackage/test-paket/node_modules/bootstrap/scss/mixins/_size.scss
 
-// Remove Deprace
+// Hapus deprecated size()
+const fileSizeScss = path.resolve(
+    ROOT,
+    'node_modules',
+    'bootstrap',
+    'scss',
+    'mixins',
+    '_size.scss'
+);
 
-spawnSync('touch', ['-tmp-install'], { stdio: 'inherit' });
-if (fs.existsSync('-tmp-install')) {
-    fs.writeFileSync('-tmp-install', JSON.stringify({
-        basepath: path.resolve('-tmp-install', '..'),
-    }));
+if (fs.existsSync(fileSizeScss)) {
+    let content = fs.readFileSync(fileSizeScss, 'utf8');
 
+    const regex = /@include deprecate\("`size\(\)`", "v4\.3\.0", "v5"\);\s*/g;
+    const newContent = content.replace(regex, '');
+
+    if (content !== newContent) {
+        fs.writeFileSync(fileSizeScss, newContent, 'utf8');
+        console.log(`✅ Updated: ${fileSizeScss}`);
+    }
 }
