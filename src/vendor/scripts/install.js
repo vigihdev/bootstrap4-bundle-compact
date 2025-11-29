@@ -7,7 +7,7 @@ const { cwd } = require('process');
 
 const dstPath = path.resolve(cwd(), 'src', 'assets', 'parent-themes-styles');
 const dstFilePath = path.join(dstPath, '_index.scss');
-const srcPath = path.resolve(cwd(), '..', '..', 'node_modules', 'bootstrap', 'scss');
+const srcPath = path.resolve(cwd(), '..', '..', '..', 'node_modules', 'bootstrap', 'scss');
 
 fs.writeFileSync('_tmp-install', JSON.stringify({
     srcPath: srcPath,
