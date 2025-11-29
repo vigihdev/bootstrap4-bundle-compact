@@ -37,10 +37,11 @@ if (isNotValids && isNotValids?.length === 0) {
         return false;
     }
 }
-
+// /Users/thrubus/VigihDev/NpmPackage/test-paket/node_modules/bootstrap/scss/mixins/_size.scss
 
 // Remove Deprace
-const fileSizeScss = path.resolve(cwd(), '..', '..', '..', 'node_modules', 'bootstrap', 'scss', 'mixins', '_size.scss');
+const fileSizeScss = path.resolve(process.env.PWD, 'node_modules', 'bootstrap', 'scss', 'mixins', '_size.scss');
+// const fileSizeScss = path.resolve(cwd(), '..', '..', '..', 'node_modules', 'bootstrap', 'scss', 'mixins', '_size.scss');
 if (fs.existsSync(fileSizeScss)) {
     try {
         let content = fs.readFileSync(fileSizeScss, 'utf8');
