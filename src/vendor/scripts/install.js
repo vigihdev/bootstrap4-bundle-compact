@@ -5,8 +5,7 @@ const path = require('path');
 
 // FIX PENTING: ambil root project
 const ROOT = process.env.npm_config_local_prefix;
-
-const dstPath = path.resolve(ROOT, 'src', 'assets', 'parent-themes-styles');
+const dstPath = path.resolve(ROOT, 'node_modules', '@vigihdev', 'bootstrap4-bundle-compact', 'src', 'assets', 'parent-themes-styles');
 const dstFilePath = path.join(dstPath, '_index.scss');
 const srcPath = path.resolve(ROOT, 'node_modules', 'bootstrap', 'scss');
 
