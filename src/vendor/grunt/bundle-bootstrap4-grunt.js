@@ -26,6 +26,7 @@ module.exports.BundleBootstrap4Grunt = function (grunt) {
         const initConfig = {
             concat: build.concat,
             concat_css: build.concat_css,
+            copy: build.copy,
         }
         grunt.initConfig(initConfig)
         if (args.length > 0) {
@@ -36,6 +37,6 @@ module.exports.BundleBootstrap4Grunt = function (grunt) {
             })
             return;
         }
-        grunt.task.run(['concat_css', 'concat'])
+        grunt.task.run(['concat_css', 'concat', 'copy'])
     });
 };

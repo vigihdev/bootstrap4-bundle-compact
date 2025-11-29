@@ -52,5 +52,18 @@ module.exports.BundleBootstrap4Sass = {
                 },
             }
         },
+
+        copy: {
+            main: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: `${PATHS.LIBRARIES.BOOTSTRAP4}/js`,
+                        src: ['jquery.min.js'],
+                        dest: JS_BUILDS
+                    }
+                ]
+            }
+        }
     },
 };
