@@ -54,7 +54,7 @@
         "grunt-text-replace": "^0.4.0"
     },
     "scripts": {
-        "install": "src/scripts/install.js",
+        "install": "src/vendor/scripts/install.js",
         "dev": "nodemon dev.js"
     }
 }
